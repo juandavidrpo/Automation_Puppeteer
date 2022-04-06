@@ -1,0 +1,21 @@
+{
+    "name": "framework",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --forceExit __tests__/reservationFlights.test.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/core": "^7.17.8",
+        "@babel/preset-env": "^7.16.11",
+        "babel-jest": "^27.5.1",
+        "jest": "^27.5.1",
+        "jest-html-reporter": "^3.4.2",
+        "jest-puppeteer": "^6.1.0",
+        "puppeteer": "^13.5.1"
+    }
+}
