@@ -1,12 +1,31 @@
+/**
+ * Representa la clase BasePage
+ * @version 1.0.0 2022-04-08
+ * @author Juan David
+ * @since 1.0.0
+ */
 export default class BasePage {
+    /**
+     * Representa el método del título
+     * @returns el título de la pagina
+     */
     async getTitle() {
         return await page.title();
     }
 
+    /**
+     *Representa el método de la url
+     * @returns la url de la pagina
+     */
     async getUrl() {
         return await page.url();
     }
 
+    /**
+     * Representa el método del texto
+     * @param selector información del selector
+     * @returns contenido del texto
+     */
     async getText(selector) {
         try {
             await page.waitForSelector(selector);
@@ -16,6 +35,12 @@ export default class BasePage {
         }
     }
 
+    /**
+     * Representa el método atributo
+     * @param selector información del selector
+     * @param attribute obtiene el atributo
+     * @returns el atributo
+     */
     async getAttribute(selector, attribute) {
         try {
             await page.waitForSelector(selector);
@@ -25,6 +50,11 @@ export default class BasePage {
         }
     }
 
+    /**
+     * Representa el método value
+     * @param selector información del selector
+     * @returns el contenido de value
+     */
     async getValue(selector) {
         try {
             await page.waitForSelector(selector);
@@ -34,6 +64,11 @@ export default class BasePage {
         }
     }
 
+    /**
+     * Representa el método de contar
+     * @param selector información del selector
+     * @returns la cantidad de elementos del selector
+     */
     async getCount(selector) {
         try {
             await page.waitForSelector(selector);
@@ -43,6 +78,10 @@ export default class BasePage {
         }
     }
 
+    /**
+     * Representa el método click
+     * @param selector información del selector
+     */
     async click(selector) {
         try {
             await page.waitForSelector(selector);
@@ -57,6 +96,12 @@ export default class BasePage {
         }
     }
 
+    /**
+     * Representa el método tipo
+     * @param selector información del selector
+     * @param text escribe el texto en el selector
+     * @param option recibe un objeto en caso de ser requerido
+     */
     async type(selector, text, option = {}) {
         try {
             await page.waitForSelector(selector);
@@ -67,6 +112,10 @@ export default class BasePage {
         }
     }
 
+    /**
+     * Representa el método doble click
+     * @param selector información del selector
+     */
     async doubleClick(selector) {
         try {
             await page.waitForSelector(selector);
@@ -76,6 +125,11 @@ export default class BasePage {
         }
     }
 
+    /**
+     * Representa el método de espera
+     * @param time limite
+     * @returns tiempo de espera
+     */
     async wait(time) {
         return page.waitForTimeout(time);
     }

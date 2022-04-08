@@ -2,18 +2,24 @@ import LoginPage from '../pages/LoginPage';
 import FlightsPage from '../pages/FlightsPage';
 import NavBar from '../components/NavBar';
 
+/**
+ * Representa el test
+ * @version 1.0.0 2022-04-08
+ * @author Juan David
+ * @since 1.0.0
+ */
 let loginPage;
 let flightsPage;
 let navBar;
 
-describe('Iniciar sesion en la pagina', () => {
+describe('Iniciar sesión en la pagina', () => {
     beforeAll(async () => {
         loginPage = new LoginPage();
         flightsPage = new FlightsPage();
         navBar = new NavBar();
     });
 
-    test('Iniciar sesion', async () => {
+    test('Iniciar sesión', async () => {
         await loginPage.visit();
         await loginPage.login('user@phptravels.com', 'demouser');
     }, 25000);

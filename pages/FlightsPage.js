@@ -1,8 +1,17 @@
 import BasePage from './basePage';
 
+/**
+ * Representa la clase FlightsPage
+ * @version 1.0.0 2022-04-08
+ * @author Juan David
+ * @since 1.0.0
+ */
 export default class FlightsPage extends BasePage {
     constructor() {
         super();
+        /**
+         * Atributos y selectores
+         */
         this.mainDiv = '.main_search';
         this.inputs = {
             from: '#autocomplete',
@@ -15,6 +24,9 @@ export default class FlightsPage extends BasePage {
         };
     }
 
+    /**
+     * Método para validar la pagina correcta
+     */
     async validatePage() {
         await page.waitForNavigation({ waitUntil: 'networkidle0' });
         await page.waitForSelector(this.mainDiv);
@@ -25,6 +37,13 @@ export default class FlightsPage extends BasePage {
         await page.waitForSelector(this.inputs.search);
     }
 
+    /**
+     * Método para seleccionar los vuelos
+     * @param from opción de partida
+     * @param to opción de destino
+     * @param date opción de fecha
+     * @param passengers opción de cantidad de pasajeros
+     */
     async selectFlight(from, to, date, passengers) {
         await this.type(this.inputs.from, from);
         await this.click(this.inputs.firstOption);
@@ -43,7 +62,10 @@ export default class FlightsPage extends BasePage {
         await this.click(this.inputs.search);
     }
 
+    /**
+     * Tiempo de espera en segundos
+     */
     async validateFlights() {
-        await this.wait(5); //espera 5 segundos
+        await this.wait(5);
     }
 }
